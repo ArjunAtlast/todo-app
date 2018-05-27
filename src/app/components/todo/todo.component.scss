@@ -1,0 +1,59 @@
+$primary: #00796b;
+
+div.todo {
+  background: #FEFEFE;
+  color: #2e2e2e;
+  border-radius: 4px;
+  overflow: hidden;
+  z-index: 5;
+  box-shadow: 0px 0px 0px transparent;
+  transition: box-shadow 0.3s ease-in-out;
+
+  &.selected {
+    box-shadow: 0px 0px 5px rgba(0,0,0,0.33), 2px 2px 5px rgba(0,0,0,0.33);
+
+    & > h4.title { background: #1e1e1e; }
+  }
+
+  & > h4.title {
+    font-size: 1.2em;
+    padding: 16px;
+    font-weight: 400;
+    text-transform: uppercase;
+    color: #FEFEFE;
+    background: $primary;
+    transition: background 0.3s ease-in-out;
+  }
+
+  & > div.content {
+    padding: 16px;
+    p {
+      text-align: justify;
+      font-weight: 300;
+    }
+  }
+
+  & > div.action {
+    display: flex;
+    align-items: center;
+    padding: 16px;
+
+    .btn-action {
+      padding: 8px;
+      font-weight: 500;
+      text-transform: uppercase;
+      font-family: 'Roboto', sans-serif;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      color: #3b3b3b;
+      transition: color 0.3s ease-in-out;
+      &:hover {
+        color: $primary;
+      }
+      &.btn-delete:hover {
+        color: #d32f2f;
+      }
+    }
+  }
+}

@@ -1,20 +1,21 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+<header>
+  <h3 class="title">my<b>TODO</b></h3>
+  <div class="batch-action">
+    <button class="btn-action btn-delete" (click)="deleteTodos()" *ngIf="!selectedTodos.isEmpty()">Delete</button>
+    <button class="btn-action btn-backup" (click)="backup()">Backup</button>
+    <input type="file" id="backup_file" (change)="restore($event.target.files[0])" hidden="true"/>
+    <button class="btn-action btn-restore" (click)="openFile()">Restore</button>
+  </div>
+</header>
+<div class="container">
+  <form class="add-todo-form">
+    <input class="todo-text" name="title" type="text" [(ngModel)]="todoTitle" placeholder="Title"/>
+    <textarea class="todo-text" name="content" cols="30" rows="10" [(ngModel)]="todoContent" placeholder="Content.."></textarea>
+    <button class="btn-add" type="button" (click)="addTodo()">Add Todo</button>
+  </form>
+  <ul class="list">
+    <li class="todo-item" *ngFor="let todo of todoList.toArray()">
+      <app-todo [todo]="todo"></app-todo>
+    </li>
+  </ul>
 </div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
-

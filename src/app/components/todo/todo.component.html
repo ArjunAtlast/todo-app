@@ -1,0 +1,11 @@
+<div class="todo"  [class.selected]="selectedTodos.contains(todo)">
+  <h4 class="title">{{todo.title}}</h4>
+  <div class="content">
+    <p>{{todo.content}}</p>
+  </div>
+  <div class="action">
+    <button class="btn-action btn-delete" (click)="delete()">Delete</button>
+    <button class="btn-action btn-select" (click)="select()" *ngIf="!selectedTodos.contains(todo)">Select</button>
+    <button class="btn-action btn-unselect" (click)="unselect()" *ngIf="selectedTodos.contains(todo)">Unselect</button>
+  </div>
+</div>
